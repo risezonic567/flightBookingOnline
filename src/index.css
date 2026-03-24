@@ -1,0 +1,7 @@
+@import "tailwindcss";
+
+@layer components {
+  .swiper-pagination {
+    @apply relative mt-6;
+  }
+}
