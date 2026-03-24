@@ -12,11 +12,11 @@ export default function Testimonial() {
   ];
 
   const [index, setIndex] = useState(0);
-  const visibleCards = 3;
+  const visibleCards = 3
 
   const handleNext = () => {
     if (index + visibleCards < reviews.length) {
-      setIndex(index + 1);
+      setIndex(index + 1)
     }
   };
 
