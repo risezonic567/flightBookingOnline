@@ -33,7 +33,7 @@ const HomePage = () => {
       <div className="relative w-full h-[250px] sm:h-[320px] md:h-[400px] lg:h-[450px] overflow-hidden">
 
         <img
-          src="public/Images/Home page banner 1920 x 450.jpg.jpeg"  
+          src="/Images/Home page banner 1920 x 450.jpg.jpeg"  
           alt="banner"
           className="absolute inset-0 border h-full w-full object-cover"
         />
