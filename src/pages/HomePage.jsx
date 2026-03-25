@@ -5,8 +5,8 @@ import { BsArrowLeftRight } from "react-icons/bs";
 import FlightDeals from "../components/FlightDeals";
 import FeaturePage from "./FeaturePage";
 import TravelerModal from "../components/TravelModal";
-import BlogCard from "./BlogCard";
-import { blogs } from "../data/blog";
+// import BlogCard from "./BlogCard";
+// import { blogs } from "../data/blog";
 import Testimonial from "../components/Testimonial";
 import FaqPage from "./FaqPage";
 import {  MdFlightTakeoff } from "react-icons/md";
@@ -187,18 +187,7 @@ const HomePage = () => {
       <FlightDeals />
       <Testimonial />
 
-      <div className="max-w-7xl px-3 py-10 mx-auto grid grid-cols-1 md:grid-cols-3 gap-10 items-stretch">
-
-        <div className="md:col-span-2">
-          <BlogCard post={blogs[0]} isFeatured />
-        </div>
-
-        <div className="flex flex-col justify-between h-full gap-6">
-          <BlogCard post={blogs[1]} />
-          <BlogCard post={blogs[2]} />
-        </div>
-
-      </div>
+    {/* <BlogCard posts={blogs} /> */}
       <FaqPage />
     </section>
   );

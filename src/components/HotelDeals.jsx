@@ -48,24 +48,6 @@ const hotels = [
     image: "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&q=80&w=800"
   },
   {
-    id: 6,
-    city: "Chicago",
-    name: "Hyatt Regency Chicago",
-    address: "151 E Wacker Dr, Chicago, IL, US, 60601",
-    price: "198.75",
-    rating: "Excellent",
-    image: "https://images.unsplash.com/photo-1551882547-ff43c63be5c2?auto=format&fit=crop&q=80&w=800"
-  },
-  {
-    id: 7,
-    city: "San Francisco",
-    name: "InterContinental Mark Hopkins",
-    address: "999 California St, San Francisco, CA, US, 94108",
-    price: "289.99",
-    rating: "Very Good",
-    image: "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?auto=format&fit=crop&q=80&w=800"
-  },
-  {
     id: 8,
     city: "Seattle",
     name: "The Edgewater Hotel",
