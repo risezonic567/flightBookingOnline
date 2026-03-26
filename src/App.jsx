@@ -40,11 +40,11 @@ export default function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
 
-          <Route path='/privay&policy' element={<PrivacyPolicy/>}/>
-          <Route path='/term&condition' element={<TermCondition/>}/>
+          {/* <Route path='/privay&policy' element={<PrivacyPolicy/>}/> */}
+          {/* <Route path='/term&condition' element={<TermCondition/>}/> */}
 
           <Route path='/reviews' element={<Testimonial />} />
-          <Route path='/blogs' element={<BlogList />} />
+          {/* <Route path='/blogs' element={<BlogList />} /> */}
 
           <Route path='/*' element={<PageNotFound />} />
         </Routes>

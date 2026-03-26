@@ -48,7 +48,7 @@ const hotels = [
     image: "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&q=80&w=800"
   },
   {
-    id: 8,
+    id: 6,
     city: "Seattle",
     name: "The Edgewater Hotel",
     address: "2411 Alaskan Way, Seattle, WA, US, 98121",
