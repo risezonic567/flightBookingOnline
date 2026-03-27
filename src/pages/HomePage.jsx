@@ -96,6 +96,7 @@ const HomePage = () => {
                     type="radio"
                     checked={tripType === "round"}
                     onChange={() => setTripType("round")}
+                    required
                   /> Round Trip
                 </label>
 
@@ -104,6 +105,7 @@ const HomePage = () => {
                     type="radio"
                     checked={tripType === "one"}
                     onChange={() => setTripType("one")}
+                    required
                   /> One Way
                 </label>
               </div>
@@ -115,6 +117,7 @@ const HomePage = () => {
                     value={from}
                     onChange={(e) => setFrom(e.target.value)}
                     className="w-1/2 border rounded-l-lg p-2 bg-gray-100"
+                    required
                   />
 
                   <div
@@ -127,6 +130,7 @@ const HomePage = () => {
                   <input
                     value={to}
                     onChange={(e) => setTo(e.target.value)}
+                    required
                     className="w-1/2 border  rounded-r-lg p-6 bg-gray-100"
                   />
                 </div>
@@ -139,6 +143,7 @@ const HomePage = () => {
                     type="date"
                     value={departureDate}
                     onChange={(e) => setDepartureDate(e.target.value)}
+                    required
                     className="bg-transparent outline-none text-sm cursor-pointer font-bold"
                   />
                 </div>
@@ -151,6 +156,7 @@ const HomePage = () => {
                   <input
                     type="date"
                     value={returnDate}
+                    required
                     onChange={(e) => setReturnDate(e.target.value)}
                     disabled={tripType === "one"}
                     className="bg-transparent outline-none cursor-pointer text-sm font-bold"
@@ -161,7 +167,7 @@ const HomePage = () => {
                   <TravelerModal />
                 </div>
 
-                <button className="md:col-span-2 bg-blue-600 text-white cursor-pointer rounded-lg py-3">
+                <button type="submit" className="md:col-span-2 bg-blue-600 text-white cursor-pointer rounded-lg py-3">
                   Search Flights
                 </button>
 
@@ -171,10 +177,10 @@ const HomePage = () => {
 
           {activeTab === "hotels" && (
             <div className="grid grid-cols-1 md:grid-cols-4 gap-3">
-              <input type="text" placeholder="City / Hotel" className="border p-3 rounded-lg bg-gray-100" />
-              <input type="date" className="border p-3 rounded-lg bg-gray-100" />
-              <input type="date" className="border p-3 rounded-lg bg-gray-100" />
-              <button className="bg-blue-600 cursor-pointer text-white rounded-lg py-3">
+              <input type="text" required placeholder="City / Hotel" className="border p-3 rounded-lg bg-gray-100" />
+              <input type="date" required className="border p-3 rounded-lg bg-gray-100" />
+              <input type="date" required className="border p-3 rounded-lg bg-gray-100" />
+              <button type="submit" className="bg-blue-600 cursor-pointer text-white rounded-lg py-3">
                 Search Hotels
               </button>
             </div>

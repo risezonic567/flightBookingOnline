@@ -1,9 +1,6 @@
 import React from 'react';
 import { BsGoogle } from 'react-icons/bs';
-import { 
-  FaFacebookF, FaLinkedinIn, FaInstagram, 
-  FaPinterestP, FaYoutube 
-} from 'react-icons/fa';
+import { FaFacebookF, FaLinkedinIn } from 'react-icons/fa';
 import { FaXTwitter } from 'react-icons/fa6';
 import { Link } from 'react-router-dom';
 
@@ -16,8 +13,8 @@ const Footer = () => {
         <div className="bg-gradient-to-l from-[#9fb3d3] to-[#cfd5df] rounded-2xl p-6 md:p-8 flex flex-col md:flex-row items-center justify-between shadow-xl">
 
           <div className="text-black md:w-1/2 text-center md:text-left">
-            <h2 className="text-2xl md:text-3xl font-bold mb-2">
-              Subscribe to our Newsletter
+            <h2 className="text-2xl md:text-3xl font-bold text-blue-600 mb-2">
+              Subscribe To Our Newsletter
             </h2>
             <p>Get latest offers from FlightBook Online</p>
 
@@ -27,7 +24,7 @@ const Footer = () => {
                 placeholder="Example@gmail.com" 
                 className="px-4 py-3 rounded-md w-full sm:w-64 border outline-none"
               />
-              <button className="bg-[#1D4ED8] hover:bg-blue-800 text-white font-semibold px-6 py-3 rounded-md transition">
+              <button className="bg-[#1D4ED8] hover:bg-blue-800 text-white font-semibold cursor-pointer px-6 py-3 rounded-md transition">
                 Subscribe
               </button>
             </div>
@@ -51,7 +48,7 @@ const Footer = () => {
             alt=""
             className='h-30'
             />
-            <p className="text-gray-200 text-sm leading-relaxed mb-6">
+            <p className="text-gray-200 text-md leading-relaxed mb-6">
               Book flights, hotels and travel services at the best price. 
               We provide a smooth and fast booking experience for our customers.
             </p>
@@ -69,11 +66,11 @@ const Footer = () => {
           <div>
             <h3 className=" font-bold mb-4 uppercase text-sm">Quick Links</h3>
             <ul className="space-y-2 text-sm text-gray-400">
-              <li><Link to="/" className="hover:text-white">Home</Link></li>
-              <li><Link to="/about-us" className="hover:text-white">About Us</Link></li>
-              <li><Link to="/faq" className="hover:text-white">Faq</Link></li>
-              <li><Link to="/contact-us" className="hover:text-white">Contact Us</Link></li>
-              <li><Link to="/login" className="hover:text-white">Login</Link></li>
+              <li><Link to="/" className="hover:text-white font-semibold">Home</Link></li>
+              <li><Link to="/about-us" className="hover:text-white font-semibold">About Us</Link></li>
+              <li><Link to="/faq" className="hover:text-white font-semibold">Faq</Link></li>
+              <li><Link to="/contact-us" className="hover:text-white font-semibold">Contact Us</Link></li>
+              <li><Link to="/login" className="hover:text-white font-semibold">Login</Link></li>
             </ul>
           </div>
 
@@ -81,9 +78,9 @@ const Footer = () => {
           <div>
             <h3 className="font-bold mb-4 uppercase text-sm">Book</h3>
             <ul className="space-y-2 text-sm text-gray-400">
-              <li><Link to="/flights" className="hover:text-white">Cheap Flights</Link></li>
-              <li><Link to="/hotels" className="hover:text-white">Cheap Hotels</Link></li>
-              <li><Link to="/sitemap" className="hover:text-white">Site Map</Link></li>
+              <li><Link to="/flights" className="hover:text-white font-semibold">Cheap Flights</Link></li>
+              <li><Link to="/hotels" className="hover:text-white font-semibold">Cheap Hotels</Link></li>
+              <li><Link to="/sitemap" className="hover:text-white font-semibold">Site Map</Link></li>
             </ul>
           </div>
 
@@ -91,15 +88,15 @@ const Footer = () => {
           <div>
             <h3 className="font-bold mb-4 uppercase text-sm">Legal</h3>
             <ul className="space-y-2 text-sm text-gray-400">
-              <li><Link  className="hover:text-white">Privacy Policy</Link></li>
-              <li><Link  className="hover:text-white">Terms & Conditions</Link></li>
+              <li><Link  className="hover:text-white font-semibold">Privacy Policy</Link></li>
+              <li><Link  className="hover:text-white font-semibold">Terms & Conditions</Link></li>
             </ul>
           </div>
 
         </div>
 
         {/* BOTTOM */}
-        <div className="text-center text-gray-200 text-sm mt-6">
+        <div className="text-center text-gray-200 text-sm mt-6 font-semibold">
           © 2026 FlightBook. All rights reserved.
         </div>
       </div>
