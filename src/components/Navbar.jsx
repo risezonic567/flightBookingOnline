@@ -29,7 +29,11 @@ export default function NavbarHero() {
 
                     <div className="flex items-center gap-2 border hover:text-blue-800 cursor-pointer border-blue-600 text-blue-500 px-4 py-2 rounded-full font-semibold">
                         <FaPhoneAlt />
-                        <span>+1-216-302-2732</span>
+                        <span>
+                            <Link to="tel:+1-216-302-2732">
+                            +1-216-302-2732
+                            </Link>
+                        </span>
                     </div>
                 </div>
 
@@ -59,7 +63,9 @@ export default function NavbarHero() {
                     <Link to="/login">Login</Link>
                     <div className="flex items-center gap-2 border border-blue-400 text-blue-500 px-4 py-2 rounded-full font-semibold">
                         <FaPhoneAlt />
-                        <span>+1-216-302-2732</span>
+                        <span>
+                            <Link to="tel:+1-216-302-2732">+1-216-302-2732</Link>
+                        </span>
                     </div>
                 </div>
             )}
