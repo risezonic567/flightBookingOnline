@@ -9,7 +9,7 @@ const hotels = [
     address: "202 Fremont St, Las Vegas, NV-Nevada, US, 89101",
     price: "164.83",
     rating: "Very Good",
-    image: "https://images.unsplash.com/photo-1581351123004-757df051db8e?auto=format&fit=crop&q=80&w=800"
+    image: "/Images/Las vegas hotel.jpg.jpeg"
   },
   {
     id: 2,
@@ -18,7 +18,7 @@ const hotels = [
     address: "5101 Blue Lagoon Dr, Miami, FL-Florida, US, 33126",
     price: "179.84",
     rating: "Very Good",
-    image: "https://images.unsplash.com/photo-1514214246283-d427a95c5d2f?auto=format&fit=crop&q=80&w=800"
+    image: "/Images/miami hotel.jpg.jpeg"
   },
   {
     id: 3,
@@ -27,7 +27,7 @@ const hotels = [
     address: "405 Lexington Ave, New York, NY, US, 10174",
     price: "245.50",
     rating: "Excellent",
-    image: "https://images.unsplash.com/photo-1496417263034-38ec4f0b665a?auto=format&fit=crop&q=80&w=800"
+    image: "/Images/new york hotel.jpg.jpeg"
   },
   {
     id: 4,
@@ -36,7 +36,7 @@ const hotels = [
     address: "1850 Hotel Plaza Blvd, Orlando, FL, US, 32830",
     price: "135.20",
     rating: "Very Good",
-    image: "https://images.unsplash.com/photo-1540541338287-41700207dee6?auto=format&fit=crop&q=80&w=800"
+    image: "/Images/Orlando hotel.jpg.jpeg"
   },
   {
     id: 5,
@@ -45,7 +45,7 @@ const hotels = [
     address: "711 S Hope St, Los Angeles, CA, US, 90017",
     price: "210.15",
     rating: "Good",
-    image: "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&q=80&w=800"
+    image: "/Images/los angeles hotel.jpg.jpeg"
   },
   {
     id: 6,
@@ -54,7 +54,7 @@ const hotels = [
     address: "2411 Alaskan Way, Seattle, WA, US, 98121",
     price: "225.40",
     rating: "Very Good",
-    image: "https://images.unsplash.com/photo-1571896349842-33c89424de2d?auto=format&fit=crop&q=80&w=800"
+    image: "/Images/Seattle hotel.jpg.jpeg"
   }
 ];
 
