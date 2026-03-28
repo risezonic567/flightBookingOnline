@@ -102,35 +102,40 @@ export default function ContactUsPage() {
             <label>Name*</label>
             <input
               type="text"
+              required
               placeholder="Enter Your Full Name"
               className="w-full border p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600"
             />
             <label>Email*</label>
             <input
               type="email"
+              required
               placeholder="Enter Your Email Address"
               className="w-full border p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600"
             />
             <label>Phone*</label>
             <input
               type="tel"
+              required
               placeholder="Enter Your Phone Number"
               className="w-full border p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600"
             />
-            <label>Subject</label>
+            <label>Subject*</label>
             <input
               type="text"
+              required
               placeholder="Subject"
               className="w-full border p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600"
             />
-            <label>Message</label>
+            <label>Message*</label>
             <textarea
               rows="3"
+              required
               placeholder="Your Message"
               className="w-full border p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600"
             ></textarea>
 
-            <button className="w-full bg-blue-600 cursor-pointer text-white py-3 rounded-lg hover:bg-blue-800 transition">
+            <button type="submit" className="w-full bg-blue-600 cursor-pointer text-white py-3 rounded-lg hover:bg-blue-800 transition">
               Send Message
             </button>
           </form>

@@ -110,7 +110,9 @@ const HomePage = () => {
                 </label>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-12 gap-3">
+              {/* search Section start */}
+              <form action="">
+                <div className="grid grid-cols-1 md:grid-cols-12 gap-3">
 
                 <div className="md:col-span-4 flex relative h-16">
                   <input
@@ -172,10 +174,12 @@ const HomePage = () => {
                 </button>
 
               </div>
+              </form>
             </>
           )}
 
-          {activeTab === "hotels" && (
+          <form>
+            {activeTab === "hotels" && (
             <div className="grid grid-cols-1 md:grid-cols-4 gap-3">
               <input type="text" required placeholder="City / Hotel" className="border p-3 rounded-lg bg-gray-100" />
               <input type="date" required className="border p-3 rounded-lg bg-gray-100" />
@@ -185,6 +189,7 @@ const HomePage = () => {
               </button>
             </div>
           )}
+          </form>
 
         </div>
       </div>

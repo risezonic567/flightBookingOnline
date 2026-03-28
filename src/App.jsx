@@ -19,7 +19,6 @@ import Signup from './pages/User/Signup'
 import ChatWidget from './components/ChatWidget'
 // import PrivacyPolicy from './pages/Policies/PrivacyPolicy'
 // import TermCondition from './pages/Policies/TermCondition'
-// import { BsWhatsapp } from 'react-icons/bs'
 
 export default function App() {
   return (

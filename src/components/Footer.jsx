@@ -18,16 +18,19 @@ const Footer = () => {
             </h2>
             <p>Get latest offers from FlightBook Online</p>
 
-            <div className="mt-6 flex flex-col sm:flex-row gap-3 justify-center md:justify-start">
+            <form>
+              <div className="mt-6 flex flex-col sm:flex-row gap-3 justify-center md:justify-start">
               <input 
-                type="email" 
+                type="email"
+                required 
                 placeholder="Example@gmail.com" 
                 className="px-4 py-3 rounded-md w-full sm:w-64 border outline-none"
               />
-              <button className="bg-[#1D4ED8] hover:bg-blue-800 text-white font-semibold cursor-pointer px-6 py-3 rounded-md transition">
+              <button type="submit" className="bg-[#1D4ED8] hover:bg-blue-800 text-white font-semibold cursor-pointer px-6 py-3 rounded-md transition">
                 Subscribe
               </button>
             </div>
+            </form>
           </div>
 
           {/* ICON */}

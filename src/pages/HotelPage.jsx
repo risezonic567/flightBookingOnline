@@ -1,17 +1,10 @@
-import React, { useState, useRef, useEffect } from "react";
-import { BiCalendar, BiMap, BiUser } from "react-icons/bi";
+import React, { useState } from "react";
+import { BiCalendar, BiMap } from "react-icons/bi";
 import HotelDeals from "../components/HotelDeals";
 
 export default function HotelPage() {
   const [city, setCity] = useState("");
   const [suggestions, setSuggestions] = useState([]);
-
-  const [showGuest, setShowGuest] = useState(false);
-  const guestRef = useRef();
-
-  const [rooms, setRooms] = useState(1);
-  const [adults, setAdults] = useState(2);
-  const [children, setChildren] = useState(0);
 
   const citiesList = [
     "Delhi", "Mumbai", "Bangalore", "Chennai",
@@ -34,20 +27,9 @@ export default function HotelPage() {
     setSuggestions(filtered);
   };
 
-  useEffect(() => {
-    const handleClickOutside = (e) => {
-      if (guestRef.current && !guestRef.current.contains(e.target)) {
-        setShowGuest(false);
-      }
-    };
-
-    document.addEventListener("mousedown", handleClickOutside);
-    return () =>
-      document.removeEventListener("mousedown", handleClickOutside);
-  }, []);
-
   return (
     <>
+      {/* HERO SECTION */}
       <div className="relative w-full h-[250px] sm:h-[320px] md:h-[400px] lg:h-[450px] overflow-hidden">
         <img
           src="/Images/hotel Banner 1920x450.jpg.jpeg"
@@ -69,16 +51,20 @@ export default function HotelPage() {
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 -mt-24 md:-mt-32 relative z-20">
+      {/* SEARCH BOX */}
+      <form>
+        <div className="max-w-7xl mx-auto px-4 -mt-24 md:-mt-32 relative z-20">
         <div className="bg-white rounded-xl shadow-2xl p-4 md:p-6">
 
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-3">
+          <div className="grid grid-cols-1 md:grid-cols-10 gap-3">
 
+            {/* CITY INPUT */}
             <div className="md:col-span-4 relative">
               <div className="flex items-center border rounded-lg p-3 bg-gray-100 h-14">
                 <BiMap className="text-blue-500 mr-2" size={20} />
                 <input
                   type="text"
+                  required
                   value={city}
                   onChange={(e) => fetchCities(e.target.value)}
                   placeholder="Enter City"
@@ -106,75 +92,32 @@ export default function HotelPage() {
 
             <div className="md:col-span-2 border rounded-lg p-3 bg-gray-100 h-14 flex items-center">
               <BiCalendar className="text-blue-500 mr-2" />
-              <input type="date" className="bg-transparent outline-none w-full" />
+              <input
+                type="date"
+                required
+                className="bg-transparent outline-none w-full"
+              />
             </div>
 
             <div className="md:col-span-2 border rounded-lg p-3 bg-gray-100 h-14 flex items-center">
               <BiCalendar className="text-blue-500 mr-2" />
-              <input type="date" className="bg-transparent outline-none w-full" />
+              <input
+                type="date"
+                required
+                className="bg-transparent outline-none w-full"
+              />
             </div>
 
-            <div
-              ref={guestRef}
-              className="md:col-span-2 relative"
-            >
-              <div
-                onClick={() => setShowGuest(!showGuest)}
-                className="border rounded-lg p-3 bg-gray-100 h-14 flex items-center justify-between cursor-pointer"
-              >
-                <div className="flex items-center gap-2">
-                  <BiUser className="text-blue-500" />
-                  <span className="text-sm">
-                    {rooms}R {adults}A {children}C
-                  </span>
-                </div>
-              </div>
-
-              {showGuest && (
-                <div className="absolute w-full bg-white shadow-lg p-4 mt-1 z-50 space-y-3">
-
-                  {[
-                    { label: "Rooms", value: rooms, set: setRooms, min: 1 },
-                    { label: "Adults", value: adults, set: setAdults, min: 1 },
-                    { label: "Children", value: children, set: setChildren, min: 0 }
-                  ].map((item, i) => (
-                    <div key={i} className="flex justify-between items-center">
-                      <span>{item.label}</span>
-                      <div className="flex items-center gap-3">
-                        <button
-                          onClick={(e) => {
-                            e.stopPropagation();
-                            item.set(Math.max(item.min, item.value - 1));
-                          }}
-                          className="px-2 bg-gray-200"
-                        >-</button>
-
-                        <span>{item.value}</span>
-
-                        <button
-                          onClick={(e) => {
-                            e.stopPropagation();
-                            item.set(item.value + 1);
-                          }}
-                          className="px-2 bg-gray-200"
-                        >+</button>
-                      </div>
-                    </div>
-                  ))}
-
-                </div>
-              )}
-            </div>
-
-            <button className="md:col-span-2 bg-blue-600 hover:bg-blue-400 text-white rounded-lg h-14">
+            <button type="submit" className="md:col-span-2 bg-blue-600 hover:bg-blue-500 text-white rounded-lg h-14">
               Search Hotels
             </button>
 
           </div>
         </div>
       </div>
+      </form>
 
-      {/* DEALS */}
+      {/* HOTEL DEALS */}
       <HotelDeals />
     </>
   );
