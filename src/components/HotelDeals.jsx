@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const hotels = [
   {
@@ -59,6 +59,7 @@ const hotels = [
 ];
 
 export default function HotelDeals() {
+  const navigate=useNavigate()
   return (
    <>
     <div className=" mt-10 min-h-screen font-sans">
@@ -105,7 +106,7 @@ export default function HotelDeals() {
                     <span className="text-[10px] uppercase font-bold text-gray-400 block mb-1">Starting From</span>
                     <span className="text-3xl font-black text-gray-900">${hotel.price}</span>
                   </div>
-                  <button className="bg-orange-500 hover:bg-orange-600 text-white font-bold py-2 px-6 rounded transition-colors duration-200 shadow-md">
+                  <button onClick={()=>navigate("/hotels-list")} className="bg-orange-500 hover:bg-orange-600 text-white font-bold py-2 px-6 rounded transition-colors duration-200 shadow-md">
                     View Deal
                   </button>
                 </div>

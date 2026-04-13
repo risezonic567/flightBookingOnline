@@ -19,8 +19,8 @@ const TravelerModal = () => {
 
   return (
     <div className="relative">
-      {/* Button */}
       <button
+      type="button"
         onClick={() => setIsOpen(!isOpen)}
         className="border p-2 rounded-lg w-full text-left bg-[#f0f4f8]"
       >
@@ -32,14 +32,13 @@ const TravelerModal = () => {
         </div>
       </button>
 
-      {/* Modal */}
       {isOpen && (
         <div className="absolute  left-1/2 -translate-x-1/2 w-[90%] md:w-[350px] bg-white border rounded-xl shadow-2xl z-[9999] p-5">
 
-          {/* Cabin */}
           <div className="grid grid-cols-2 gap-2 mb-4">
             {["Economy", "Business", "First"].map((type) => (
               <button
+              type="button"
                 key={type}
                 onClick={() => setCabin(type)}
                 className={`py-2 border cursor-pointer rounded ${
@@ -53,16 +52,15 @@ const TravelerModal = () => {
             ))}
           </div>
 
-          {/* Counters */}
           {["adults", "children"].map((type) => (
             <div key={type} className="flex justify-between items-center mb-3">
               <span className="capitalize">{type}</span>
               <div className="flex gap-3 items-center">
-                <button onClick={() => updateCount(type, -1)}>
+                <button type="button" onClick={() => updateCount(type, -1)}>
                   <Minus className="rounded-2xl border cursor-pointer"/>
                 </button>
                 <span>{counts[type]}</span>
-                <button onClick={() => updateCount(type, 1)}>
+                <button type="button" onClick={() => updateCount(type, 1)}>
                   <Plus className="rounded-2xl border cursor-pointer"/>
                 </button>
               </div>
@@ -70,6 +68,7 @@ const TravelerModal = () => {
           ))}
 
           <button
+          type="button"
             onClick={() => setIsOpen(false)}
             className="w-full mt-4 bg-blue-600 text-white py-2 rounded"
           >

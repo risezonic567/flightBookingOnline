@@ -56,7 +56,6 @@ export default function BlogCard({ posts }) {
                 </div>
               </div>
 
-              {/* CONTENT */}
               <div className="p-4">
                 <h2 className="font-bold text-lg text-gray-900 mb-2 line-clamp-2">
                   {post.title}

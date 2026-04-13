@@ -17,8 +17,13 @@ import FaqPage from './pages/FaqPage'
 import Login from './pages/User/Login'
 import Signup from './pages/User/Signup'
 import ChatWidget from './components/ChatWidget'
+import FlightListPage from './pages/FlightListPage'
+import CheckoutPage from './pages/CheckoutPage'
+import HotelListPage from './pages/HotelListPage'
+import HotelBookCard from './pages/HotelBookCard'
+// import RefundPolicy from './pages/Policies/RefundPolicy'
+// import TermsCondition from './pages/Policies/TermCondition'
 // import PrivacyPolicy from './pages/Policies/PrivacyPolicy'
-// import TermCondition from './pages/Policies/TermCondition'
 
 export default function App() {
   return (
@@ -35,13 +40,18 @@ export default function App() {
           <Route path="/sitemap" element={<Sitemap />} />
           <Route path="/hotels" element={<HotelPage />} />
           <Route path="/flights" element={<FlightPage />} />
+          <Route path="/flights-list" element={<FlightListPage />} />
+          <Route path="/hotels-list" element={<HotelListPage />} />
+          <Route path="/hotel-facility" element={<HotelBookCard />} />
+          <Route path="/checkout" element={<CheckoutPage />} />
           <Route path="/faq" element={<FaqPage />} />
 
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
 
-          {/* <Route path='/privay&policy' element={<PrivacyPolicy/>}/> */}
-          {/* <Route path='/term&condition' element={<TermCondition/>}/> */}
+          {/* <Route path='/privacy-policy' element={<PrivacyPolicy/>}/>
+          <Route path='/terms-condition' e  lement={<TermsCondition/>}/> */}
+          {/* <Route path='/refund-policy' element={<RefundPolicy />} /> */}
 
           <Route path='/reviews' element={<Testimonial />} />
           {/* <Route path='/blogs' element={<BlogList />} /> */}

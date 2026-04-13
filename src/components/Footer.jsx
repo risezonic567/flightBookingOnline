@@ -91,8 +91,9 @@ const Footer = () => {
           <div>
             <h3 className="font-bold mb-4 uppercase text-sm">Legal</h3>
             <ul className="space-y-2 text-sm text-gray-400">
-              <li><Link  className="hover:text-white font-semibold">Privacy Policy</Link></li>
-              <li><Link  className="hover:text-white font-semibold">Terms & Conditions</Link></li>
+              <li><Link  className="hover:text-white font-semibold" to="/privacy-policy">Privacy & Policy</Link></li>
+              <li><Link  className="hover:text-white font-semibold" to="/terms-condition">Terms & Conditions</Link></li>
+              <li><Link  className="hover:text-white font-semibold" to="/refund-policy">Refund & Policy</Link></li>
             </ul>
           </div>
 

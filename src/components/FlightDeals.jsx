@@ -9,6 +9,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 
 import { Navigation, Autoplay } from "swiper/modules";
+import { useNavigate } from 'react-router-dom';
 
 const deals = [
   {
@@ -85,7 +86,8 @@ const deals = [
   }
 ];
 
-const FlightDeals = () => {
+export default function FlightDeals(){
+  const navigate = useNavigate()
   return (
     <>
       <div className="bg-[#f3f7ff] py-16 px-4">
@@ -94,10 +96,10 @@ const FlightDeals = () => {
           {/* HEADER */}
           <div className="text-center mb-10">
             <h2 className="text-2xl md:text-4xl font-extrabold text-blue-600 mb-2 uppercase">
-              Top Flight Deals
+              Cheap Flight Deals from USA to Top Destinations
             </h2>
             <p className="text-gray-500 text-sm md:text-base max-w-2xl mx-auto">
-              Get access to unbeatable flight offers tailored to your travel needs.
+              Explore the latest deals on international and domestic flights from the USA. Book affordable tickets to top destinations at the best prices.
             </p>
           </div>
 
@@ -176,7 +178,7 @@ const FlightDeals = () => {
                         </span>
                       </div>
 
-                      <button className="bg-blue-600 hover:bg-blue-300 text-white text-xs px-4 py-2 rounded-lg transition">
+                      <button onClick={()=>navigate("/checkout",{state:deal})} className="bg-blue-600 cursor-pointer hover:bg-blue-300 text-white text-xs px-4 py-2 rounded-lg transition">
                         Book Now
                       </button>
                     </div>
@@ -188,13 +190,18 @@ const FlightDeals = () => {
             ))}
 
           </Swiper>
-
+             <div className="text-center">
+            <h2 className="text-2xl md:text-3xl font-extrabold text-blue-600 mb-2 mt-4 uppercase">
+              Cheap Flights Booking from USA
+            </h2>
+            <p className="text-gray-500 text-sm md:text-base max-w-2xl mx-auto">
+             Finding affordable flights from the USA is easier than ever with FlightsBookingOnline. We help travelers compare and book cheap international and domestic flights to top destinations like India, Dubai, the UK, and Canada. Whether you’re looking for last-minute deals or planning your next vacation, our platform ensures the best prices and a seamless booking experience.
+             </p>
+          </div>
         </div>
       </div>
 
-      <div className="mb-10"></div>
+      {/* <div className="mb-10"></div> */}
     </>
   );
 };
-
-export default FlightDeals;

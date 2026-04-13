@@ -1,12 +1,15 @@
 import React, { useState } from "react";
-import { BiHotel } from "react-icons/bi";
 import { BsArrowLeftRight } from "react-icons/bs";
-import { MdFlightTakeoff } from "react-icons/md";
+import { MdLocalFlorist, MdOutlineFlightTakeoff } from "react-icons/md";
 import TravelerModal from "../components/TravelModal";
+import { useNavigate } from "react-router-dom";
 
-const FlightPage = () => {
+export default function FlightPage() {
   const [activeTab, setActiveTab] = useState("flights");
   const [tripType, setTripType] = useState("round");
+
+  const navigate = useNavigate()
+
 
   const [from, setFrom] = useState("DEL");
   const [to, setTo] = useState("HYD");
@@ -19,10 +22,19 @@ const FlightPage = () => {
     setTo(from);
   };
 
+  // const deals = [
+  //   { from: "DEL", to: "BOM", price: "₹4,500*", date: "15 May - 20 May" },
+  //   { from: "DEL", to: "BLR", price: "₹5,200*", date: "10 Jun - 15 Jun" },
+  //   { from: "HYD", to: "DXB", price: "₹18,900*", date: "22 May - 30 May" },
+  //   { from: "MAA", to: "SIN", price: "₹22,400*", date: "05 Jul - 12 Jul" },
+  //   { from: "HYD", to: "LON", price: "₹40,400*", date: "06 Jul - 52 Jul" },
+  //   { from: "BOM", to: "SIN", price: "₹22,400*", date: "05 Jul - 12 Jul" },
+
+  // ];
+
   return (
     <div className="w-full bg-[#f4f7f9] font-sans">
 
-      {/* HERO IMAGE */}
       <div className="relative w-full h-[250px] sm:h-[320px] md:h-[400px] lg:h-[450px] overflow-hidden">
         <img
           src="/Images/flight 1920x450.jpg.jpeg"
@@ -34,10 +46,12 @@ const FlightPage = () => {
         <div className="relative z-10 flex items-center justify-center h-full text-center px-4">
           <div className="text-white">
             <h1 className="text-2xl md:text-4xl font-bold mb-2">
-              Book Flights Easily
+              Book Cheap Flights from the USA – Fast & Easy Online
             </h1>
             <p className="text-sm md:text-lg">
-              Find the best deals and explore the world
+              Find the best deals on domestic and international flights. Compare prices, save more,
+              and travel smarter.
+
             </p>
           </div>
         </div>
@@ -46,12 +60,10 @@ const FlightPage = () => {
       <form action="">
         <div className="max-w-7xl mx-auto px-4  -mt-20 sm:-mt-24 md:-mt-45 relative z-20">
 
-          {/* BOX */}
           <div className="bg-white rounded-xl shadow-2xl p-2 md:p-6">
 
             {activeTab === "flights" && (
               <>
-                {/* Trip Type */}
                 <div className="flex gap-6 mb-6 text-sm font-semibold">
                   <label className="cursor-pointer">
                     <input
@@ -72,10 +84,8 @@ const FlightPage = () => {
                   </label>
                 </div>
 
-                {/* FORM */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-12 gap-3">
 
-                  {/* FROM TO */}
                   <div className="md:col-span-4 flex flex-col md:flex-row relative gap-2 md:gap-0">
 
                     <input
@@ -86,7 +96,6 @@ const FlightPage = () => {
                       placeholder="From"
                     />
 
-                    {/* Swap */}
                     <div
                       onClick={handleSwap}
                       className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 bg-white border rounded-full w-7 h-7 flex items-center justify-center shadow-sm cursor-pointer hover:bg-blue-50"
@@ -103,7 +112,6 @@ const FlightPage = () => {
                     />
                   </div>
 
-                  {/* DEPARTURE */}
                   <div className="md:col-span-2 border rounded-lg p-3 bg-[#f0f4f8] h-16 flex flex-col justify-center">
                     <label className="text-[10px] text-gray-500 font-bold">
                       Departure
@@ -117,7 +125,6 @@ const FlightPage = () => {
                     />
                   </div>
 
-                  {/* RETURN */}
                   <div className={`md:col-span-2 border rounded-lg p-3 bg-[#f0f4f8] h-16 flex flex-col justify-center ${tripType === "one" ? "opacity-50 pointer-events-none" : ""
                     }`}>
                     <label className="text-[10px] text-gray-500 font-bold">
@@ -133,12 +140,10 @@ const FlightPage = () => {
                     />
                   </div>
 
-                  {/* TRAVELER */}
                   <div className="md:col-span-2">
                     <TravelerModal />
                   </div>
 
-                  {/* BUTTON */}
                   <button type="submit" className="md:col-span-2 w-full cursor-pointer bg-blue-600 text-white rounded-lg py-3 hover:bg-blue-700">
                     Search Flights
                   </button>
@@ -153,30 +158,62 @@ const FlightPage = () => {
 
       </form>
 
-      <div className="max-w-7xl mx-auto px-4 py-16">
-        <h2 className="text-3xl font-black text-center text-blue-600">
-          Handpicked Top Flight Deals
-        </h2>
+      <div className="max-w-7xl mx-auto px-4 py-20">
+        <div className="flex items-center justify-between mb-10">
+          <div>
+            <h2 className="text-3xl font-extrabold text-gray-800">Today’s Best Flight Deals from the USA</h2>
+            <p>Compare fares and book affordable flights from major US cities to top international and domestic destinations. Limited-time deals available.
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-12">
-          {[
-            { from: "LAX", to: "LAS", price: "$87.99*", date: "02 May - 04 May" },
-            { from: "DEN", to: "HOU", price: "$131.97*", date: "05 May - 11 May" },
-            { from: "LAX", to: "LAS", price: "$87.99*", date: "02 May - 04 May" },
-            { from: "DEN", to: "HOU", price: "$131.97*", date: "05 May - 11 May" },
-            { from: "LAX", to: "LAS", price: "$87.99*", date: "02 May - 04 May" },
-            { from: "DEN", to: "HOU", price: "$131.97*", date: "05 May - 11 May" },
-          ].map((deal, idx) => (
-            <div key={idx} className="bg-white p-6 rounded-xl shadow border flex justify-between">
-              <div>
-                <p className="text-xs text-gray-400">{deal.date}</p>
-                <div className="flex items-center gap-4">
-                  <span className="font-bold">{deal.from}</span>
-                  <div className="border-t-2 border-dashed w-10"></div>
-                  <span className="font-bold">{deal.to}</span>
+</p>
+            <div className="h-1 w-20 bg-blue-600 mt-2 rounded-full"></div>
+          </div>
+          <button onClick={() => navigate("/flights-list")} className="text-blue-600 cursor-pointer font-semibold hover:underline">View All Deals</button>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {deals.map((deal, idx) => (
+            <div
+              key={idx}
+              className="bg-white p-5 rounded-2xl border border-gray-100 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group"
+            >
+              <div className="flex justify-between items-start mb-4">
+                <div className="bg-blue-50 text-blue-600 p-2 rounded-lg group-hover:bg-blue-600 group-hover:text-white transition-colors">
+                  <MdOutlineFlightTakeoff size={24} />
+                </div>
+                <div className="text-right">
+                  <span className="block text-xs text-gray-400 uppercase font-bold">Starts from</span>
+                  <span className="text-xl font-black text-blue-600">{deal.price}</span>
                 </div>
               </div>
-              <p className="text-xl font-bold text-green-600">{deal.price}</p>
+
+              <div className="flex items-center gap-4 mb-3">
+                <div className="flex flex-col">
+                  <span className="text-lg font-bold text-gray-700">{deal.from}</span>
+                  <span className="text-[10px] text-gray-400">Origin</span>
+                </div>
+                <div className="flex-1 flex items-center justify-center relative">
+                  <div className="w-full border-t-2 border-dashed border-gray-200"></div>
+                  <MdLocalFlorist className="absolute text-gray-300" />
+                </div>
+                <div className="flex flex-col text-right">
+                  <span className="text-lg font-bold text-gray-700">{deal.to}</span>
+                  <span className="text-[10px] text-gray-400">Destination</span>
+                </div>
+              </div>
+
+              <div className="flex items-center gap-2 text-gray-500 text-sm bg-gray-50 p-2 rounded-lg">
+
+                <input
+                  type="date"
+                  defaultValue="2026-03-31"
+                  className="bg-transparent outline-none"
+                />
+
+                <button onClick={() => navigate("/checkout", { state: deal })} className="ml-auto bg-blue-600 text-white rounded-3xl px-4 py-2 cursor-pointer">
+                  Book Now
+                </button>
+
+              </div>
             </div>
           ))}
         </div>
@@ -186,4 +223,3 @@ const FlightPage = () => {
   );
 };
 
-export default FlightPage;

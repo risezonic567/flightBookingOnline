@@ -106,7 +106,7 @@ export default function Testimonial() {
               ))}
             </div>
 
-            <p className="mt-6 text-xs opacity-60 italic px-6">
+            <p className="mt-6 text-sm opacity-60  italic px-6">
               Showing our 4 & 5 star reviews
             </p>
 

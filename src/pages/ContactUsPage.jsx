@@ -51,7 +51,7 @@ export default function ContactUsPage() {
                 </div>
                 <p className="text-gray-700 text-sm">
                   <strong>Phone:</strong><br />
-                  <Link to="tel:+918986286734">+91 8986286734</Link>
+                  <Link to="tel:+918986225734">+91 8986225734</Link>
                 </p>
               </div>
 
@@ -62,8 +62,8 @@ export default function ContactUsPage() {
                 </div>
                 <p className="text-gray-700 text-sm break-all">
                   <strong>Email:</strong><br />
-                  <Link to="mailto:kumarsunny919200@gmail.com">
-                    kumarsunny919200@gmail.com
+                  <Link to="mailto:kumarsunny9200@gmail.com">
+                    kumarsunny9200@gmail.com
                   </Link>
                 </p>
               </div>
