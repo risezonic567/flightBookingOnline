@@ -93,7 +93,6 @@ export default function FlightDeals(){
       <div className="bg-[#f3f7ff] py-16 px-4">
         <div className="max-w-7xl mx-auto bg-white cursor-pointer rounded-3xl p-6 md:p-10 shadow-sm border border-gray-100 relative">
 
-          {/* HEADER */}
           <div className="text-center mb-10">
             <h2 className="text-2xl md:text-4xl font-extrabold text-blue-600 mb-2 uppercase">
               Cheap Flight Deals from USA to Top Destinations
@@ -103,7 +102,6 @@ export default function FlightDeals(){
             </p>
           </div>
 
-          {/* ARROWS */}
           <button className="prev-btn absolute left-0 md:-left-5 cursor-pointer top-1/2 -translate-y-1/2 z-10 bg-white shadow-lg w-10 h-10 flex items-center justify-center rounded-full hover:bg-blue-100">
             <IoIosArrowBack size={20} />
           </button>
@@ -112,7 +110,6 @@ export default function FlightDeals(){
             <IoIosArrowForward size={20} />
           </button>
 
-          {/* SWIPER */}
           <Swiper
             speed={500}
             spaceBetween={20}
@@ -137,37 +134,31 @@ export default function FlightDeals(){
 
                 <div className="bg-white border border-gray-100 rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition duration-300">
 
-                  {/* IMAGE */}
                   <img
                     src={deal.img}
                     alt={deal.to}
                     className="w-full h-full  sm:h-[220px] md:h-[250px] object-cover hover:scale-110 transition duration-500"
                   />
 
-                  {/* CONTENT */}
                   <div className="p-5">
 
-                    {/* ROUTE */}
                     <div className="flex items-center justify-between font-bold text-sm mb-4">
                       <span>{deal.from}</span>
                       <BsArrowLeftRight className="text-blue-500" size={12} />
                       <span>{deal.to}</span>
                     </div>
 
-                    {/* AIRLINE */}
                     <div className="flex items-center gap-2 mb-4">
                       <span className="text-xs text-gray-600">
                         {deal.airline} • Economy
                       </span>
                     </div>
 
-                    {/* DATE */}
                     <div className="bg-gray-100 rounded-lg p-2 flex items-center gap-2 mb-5">
                       <SlCalender size={14} />
                       <span className="text-xs">{deal.date}</span>
                     </div>
 
-                    {/* PRICE */}
                     <div className="flex items-end justify-between">
                       <div>
                         <p className="text-[10px] text-gray-500 uppercase">
@@ -190,14 +181,14 @@ export default function FlightDeals(){
             ))}
 
           </Swiper>
-             <div className="text-center">
+             {/* <div className="text-center">
             <h2 className="text-2xl md:text-3xl font-extrabold text-blue-600 mb-2 mt-4 uppercase">
               Cheap Flights Booking from USA
             </h2>
             <p className="text-gray-500 text-sm md:text-base max-w-2xl mx-auto">
              Finding affordable flights from the USA is easier than ever with FlightsBookingOnline. We help travelers compare and book cheap international and domestic flights to top destinations like India, Dubai, the UK, and Canada. Whether you’re looking for last-minute deals or planning your next vacation, our platform ensures the best prices and a seamless booking experience.
              </p>
-          </div>
+          </div> */}
         </div>
       </div>
 

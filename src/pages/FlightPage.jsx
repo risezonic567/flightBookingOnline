@@ -51,7 +51,6 @@ export default function FlightPage() {
             <p className="text-sm md:text-lg">
               Find the best deals on domestic and international flights. Compare prices, save more,
               and travel smarter.
-
             </p>
           </div>
         </div>
