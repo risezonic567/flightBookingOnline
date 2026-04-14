@@ -15,7 +15,7 @@ const hotels = [
     id: 2,
     city: "Miami",
     name: "Ocean View Hotel",
-    address: "5101 Blue Lagoon Dr, Miami, FL-Florida, US, 33126",
+    address: "5101 Blue Lagoon Dr,  FL-Florida, US, 33126",
     price: "120/night ",
     rating: "Very Good",
     image: "/Images/miami hotel.jpg.jpeg"
