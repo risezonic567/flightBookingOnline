@@ -5,27 +5,27 @@ const hotels = [
   {
     id: 1,
     city: "Las Vegas",
-    name: "Four Queens Hotel And Casino",
+    name: "Royal Stay",
     address: "202 Fremont St, Las Vegas, NV-Nevada, US, 89101",
-    price: "164.83",
+    price: "98/night",
     rating: "Very Good",
     image: "/Images/Las vegas hotel.jpg.jpeg"
   },
   {
     id: 2,
     city: "Miami",
-    name: "Hilton Miami Airport",
+    name: "Ocean View Hotel",
     address: "5101 Blue Lagoon Dr, Miami, FL-Florida, US, 33126",
-    price: "179.84",
+    price: "120/night ",
     rating: "Very Good",
     image: "/Images/miami hotel.jpg.jpeg"
   },
   {
     id: 3,
     city: "New York",
-    name: "The Manhattan Center Hotel",
+    name: "Grand City Hotel",
     address: "405 Lexington Ave, New York, NY, US, 10174",
-    price: "245.50",
+    price: "130/night",
     rating: "Excellent",
     image: "/Images/new york hotel.jpg.jpeg"
   },
@@ -34,16 +34,16 @@ const hotels = [
     city: "Orlando",
     name: "Wyndham Garden Lake Buena Vista",
     address: "1850 Hotel Plaza Blvd, Orlando, FL, US, 32830",
-    price: "135.20",
+    price: "135/night",
     rating: "Very Good",
     image: "/Images/Orlando hotel.jpg.jpeg"
   },
   {
     id: 5,
     city: "Los Angeles",
-    name: "Sheraton Grand Los Angeles",
+    name: "Sunset Inn",
     address: "711 S Hope St, Los Angeles, CA, US, 90017",
-    price: "210.15",
+    price: "115/night",
     rating: "Good",
     image: "/Images/los angeles hotel.jpg.jpeg"
   },
@@ -52,7 +52,7 @@ const hotels = [
     city: "Seattle",
     name: "The Edgewater Hotel",
     address: "2411 Alaskan Way, Seattle, WA, US, 98121",
-    price: "225.40",
+    price: "150/night",
     rating: "Very Good",
     image: "/Images/Seattle hotel.jpg.jpeg"
   }
@@ -65,7 +65,7 @@ export default function HotelDeals() {
     <div className=" mt-10 min-h-screen font-sans">
       
       <main className="max-w-6xl mx-auto p-6">
-        <h1 className="text-2xl font-bold uppercase text-blue-600 mb-6">Today's Popular Destinations</h1>
+        <h1 className="text-2xl font-bold uppercase text-blue-600 mb-6">Today’s Popular Hotel Destinations</h1>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {hotels.map((hotel) => (

@@ -26,7 +26,7 @@ const FaqPage = () => {
       question: "Is it safe to book flights online?",
       answer: "Yes, booking flights online is completely safe when using a secure and trusted platform. We use advanced security measures to protect your personal and payment information, ensuring a safe booking experience."
     },
-    
+
   ];
 
   const toggleFAQ = (index) => {
@@ -35,8 +35,8 @@ const FaqPage = () => {
 
   return (
     <div className="bg-[#f4f7f9] min-h-screen font-sans">
-      
-     
+
+
       <div className="bg-[#002b70] text-white py-16 px-4 text-center">
         <h1 className="text-4xl md:text-5xl font-bold mb-4 uppercase"> How can we help you?</h1>
         <p className="text-blue-100 text-lg max-w-2xl mx-auto">
@@ -45,14 +45,14 @@ const FaqPage = () => {
       </div>
 
       <div className="max-w-4xl mx-auto px-6  -mt-10 pb-20">
-      
+
         <div className="space-y-4 ">
           {faqs.map((faq, index) => (
-            <div 
-              key={index} 
+            <div
+              key={index}
               className="bg-white rounded-xl  border border-gray-100 shadow-sm overflow-hidden"
             >
-              <button 
+              <button
                 onClick={() => toggleFAQ(index)}
                 className="w-full flex items-center justify-between p-6 text-left hover:bg-gray-50 transition-colors"
               >
@@ -63,7 +63,7 @@ const FaqPage = () => {
                   <BiChevronDown className="text-gray-400 cursor-pointer" size={28} />
                 )}
               </button>
-              
+
               {openIndex === index && (
                 <div className="px-6 pb-6 text-gray-600 leading-relaxed border-t border-gray-50 pt-4">
                   {faq.answer}
@@ -73,22 +73,32 @@ const FaqPage = () => {
           ))}
         </div>
 
-        
-        <div className="mt-16 bg-blue-50 rounded-2xl p-8 flex flex-col md:flex-row items-center justify-between gap-6 border border-blue-100">
-          <div className="flex items-center gap-4">
-            <div className="bg-blue-600 p-4 rounded-full text-white">
-              <BiSupport size={32} />
-            </div>
-            <div>
-              <h3 className="font-bold text-xl text-gray-800">Do you offer customer support for flight bookings?</h3>
-              <p className="text-gray-600">Yes, we provide 24/7 customer support to assist you with flight bookings, cancellations, changes, and travel queries. Our travel experts are always ready to help you find the best deals.</p>
-            </div>
-          </div>
-          <button className="bg-[#0a3375] text-white px-8 py-3 rounded-xl font-bold hover:bg-blue-800 transition-all">
-           <Link to="/contact-us"> Contact Us</Link>
-          </button>
-        </div>
 
+        <div className="mt-16 bg-blue-50 rounded-2xl p-4 sm:p-5 md:p-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-5 md:gap-6 border border-blue-100">
+
+          <div className="flex items-start gap-3 md:gap-4 w-full">
+
+            <div className="bg-blue-600 p-2.5 sm:p-3 md:p-4 rounded-full text-white flex-shrink-0">
+              <BiSupport className="w-5 h-5 sm:w-6 sm:h-6 md:w-8 md:h-8" />
+            </div>
+
+            <div className="flex-1">
+              <h3 className="font-bold text-base sm:text-lg md:text-xl text-gray-800 leading-snug">
+                Do you offer customer support for flight bookings?
+              </h3>
+
+              <p className="text-gray-600 text-xs sm:text-sm md:text-base mt-1">
+                Yes, we provide 24/7 customer support to assist you with flight bookings, cancellations, changes, and travel queries. Our travel experts are always ready to help you find the best deals.
+              </p>
+            </div>
+
+          </div>
+
+          <button className="w-full md:w-auto bg-[#0a3375] text-white px-5 sm:px-6 md:px-8 py-2.5 md:py-3 rounded-xl font-bold hover:bg-blue-800 transition-all text-sm sm:text-base">
+            <Link to="/contact-us">Contact Us</Link>
+          </button>
+
+        </div>
       </div>
     </div>
   );

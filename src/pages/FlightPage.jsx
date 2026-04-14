@@ -22,15 +22,15 @@ export default function FlightPage() {
     setTo(from);
   };
 
-  // const deals = [
-  //   { from: "DEL", to: "BOM", price: "₹4,500*", date: "15 May - 20 May" },
-  //   { from: "DEL", to: "BLR", price: "₹5,200*", date: "10 Jun - 15 Jun" },
-  //   { from: "HYD", to: "DXB", price: "₹18,900*", date: "22 May - 30 May" },
-  //   { from: "MAA", to: "SIN", price: "₹22,400*", date: "05 Jul - 12 Jul" },
-  //   { from: "HYD", to: "LON", price: "₹40,400*", date: "06 Jul - 52 Jul" },
-  //   { from: "BOM", to: "SIN", price: "₹22,400*", date: "05 Jul - 12 Jul" },
+  const deals = [
+    { from: "DEL", to: "BOM", price: "₹4,500*", date: "15 May - 20 May" },
+    { from: "DEL", to: "BLR", price: "₹5,200*", date: "10 Jun - 15 Jun" },
+    { from: "HYD", to: "DXB", price: "₹18,900*", date: "22 May - 30 May" },
+    { from: "MAA", to: "SIN", price: "₹22,400*", date: "05 Jul - 12 Jul" },
+    { from: "HYD", to: "LON", price: "₹40,400*", date: "06 Jul - 52 Jul" },
+    { from: "BOM", to: "SIN", price: "₹22,400*", date: "05 Jul - 12 Jul" },
 
-  // ];
+  ];
 
   return (
     <div className="w-full bg-[#f4f7f9] font-sans">
@@ -157,58 +157,84 @@ export default function FlightPage() {
 
       </form>
 
-      <div className="max-w-7xl mx-auto px-4 py-20">
-        <div className="flex items-center justify-between mb-10">
-          <div>
-            <h2 className="text-3xl font-extrabold text-gray-800">Today’s Best Flight Deals from the USA</h2>
-            <p>Compare fares and book affordable flights from major US cities to top international and domestic destinations. Limited-time deals available.
+      <div className="max-w-7xl mx-auto px-4 py-12 md:py-20">
 
-</p>
-            <div className="h-1 w-20 bg-blue-600 mt-2 rounded-full"></div>
+        <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-8 md:mb-10 gap-4">
+
+          <div className="text-center md:text-left px-2">
+            <h2 className="text-2xl md:text-3xl font-extrabold text-gray-800 leading-snug">
+              Today’s Best Flight Deals from the USA
+            </h2>
+
+            <p className="mt-2 text-sm md:text-base text-gray-600 max-w-xl mx-auto md:mx-0">
+              Compare fares and book affordable flights from major US cities to top international and domestic destinations. Limited-time deals available.
+            </p>
+
+            <div className="h-1 w-16 md:w-20 bg-blue-600 mt-3 rounded-full mx-auto md:mx-0"></div>
           </div>
-          <button onClick={() => navigate("/flights-list")} className="text-blue-600 cursor-pointer font-semibold hover:underline">View All Deals</button>
+
+          <button
+            onClick={() => navigate("/flights-list")}
+            className="w-full md:w-auto text-blue-600 font-semibold hover:underline text-center"
+          >
+            View All Deals
+          </button>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
           {deals.map((deal, idx) => (
             <div
               key={idx}
-              className="bg-white p-5 rounded-2xl border border-gray-100 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group"
+              className="bg-white p-4 md:p-5 rounded-2xl border border-gray-100 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group"
             >
               <div className="flex justify-between items-start mb-4">
                 <div className="bg-blue-50 text-blue-600 p-2 rounded-lg group-hover:bg-blue-600 group-hover:text-white transition-colors">
-                  <MdOutlineFlightTakeoff size={24} />
+                  <MdOutlineFlightTakeoff size={22} />
                 </div>
+
                 <div className="text-right">
-                  <span className="block text-xs text-gray-400 uppercase font-bold">Starts from</span>
-                  <span className="text-xl font-black text-blue-600">{deal.price}</span>
+                  <span className="block text-[10px] md:text-xs text-gray-400 uppercase font-bold">
+                    Starts from
+                  </span>
+                  <span className="text-lg md:text-xl font-black text-blue-600">
+                    {deal.price}
+                  </span>
                 </div>
               </div>
 
-              <div className="flex items-center gap-4 mb-3">
+              <div className="flex items-center gap-2 md:gap-4 mb-3">
                 <div className="flex flex-col">
-                  <span className="text-lg font-bold text-gray-700">{deal.from}</span>
+                  <span className="text-base md:text-lg font-bold text-gray-700">
+                    {deal.from}
+                  </span>
                   <span className="text-[10px] text-gray-400">Origin</span>
                 </div>
+
                 <div className="flex-1 flex items-center justify-center relative">
                   <div className="w-full border-t-2 border-dashed border-gray-200"></div>
-                  <MdLocalFlorist className="absolute text-gray-300" />
+                  <MdLocalFlorist className="absolute text-gray-300 text-sm" />
                 </div>
+
                 <div className="flex flex-col text-right">
-                  <span className="text-lg font-bold text-gray-700">{deal.to}</span>
+                  <span className="text-base md:text-lg font-bold text-gray-700">
+                    {deal.to}
+                  </span>
                   <span className="text-[10px] text-gray-400">Destination</span>
                 </div>
               </div>
 
-              <div className="flex items-center gap-2 text-gray-500 text-sm bg-gray-50 p-2 rounded-lg">
+              <div className="flex flex-col md:flex-row md:items-center gap-2 text-gray-500 text-sm bg-gray-50 p-2 rounded-lg">
 
                 <input
                   type="date"
                   defaultValue="2026-03-31"
-                  className="bg-transparent outline-none"
+                  className="bg-transparent outline-none w-full md:w-auto"
                 />
 
-                <button onClick={() => navigate("/checkout", { state: deal })} className="ml-auto bg-blue-600 text-white rounded-3xl px-4 py-2 cursor-pointer">
+                <button
+                  onClick={() => navigate("/checkout", { state: deal })}
+                  className="w-full md:w-auto md:ml-auto bg-blue-600 text-white rounded-3xl px-4 py-2 cursor-pointer text-sm font-semibold"
+                >
                   Book Now
                 </button>
 
@@ -217,7 +243,6 @@ export default function FlightPage() {
           ))}
         </div>
       </div>
-
     </div>
   );
 };

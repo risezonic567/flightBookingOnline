@@ -70,8 +70,8 @@ export default function NavbarHero() {
           <div className="flex items-center gap-2 border hover:text-blue-800 cursor-pointer border-blue-600 text-blue-500 px-4 py-2 rounded-full font-semibold">
             <FaPhoneAlt />
             <span>
-              <Link to="tel:+1-216-302-2732">
-                +1-216-302-2732
+              <Link to="tel:+18187726235">
+                +18187726235
               </Link>
             </span>
           </div>
@@ -110,7 +110,7 @@ export default function NavbarHero() {
 
           <div className="flex items-center gap-2 border border-blue-400 text-blue-500 px-4 py-2 rounded-full font-semibold">
             <FaPhoneAlt />
-            <Link to="tel:+1-216-302-2732">+1-216-302-2732</Link>
+            <Link to="tel:+18187726235">+18187726235</Link>
           </div>
 
         </div>

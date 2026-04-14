@@ -51,7 +51,7 @@ export default function ContactUsPage() {
                 </div>
                 <p className="text-gray-700 text-sm">
                   <strong>Phone:</strong><br />
-                  <Link to="tel:+918986225734">+91 8986225734</Link>
+                  <Link to="tel:+18187726235">+18187726235</Link>
                 </p>
               </div>
 
@@ -62,8 +62,8 @@ export default function ContactUsPage() {
                 </div>
                 <p className="text-gray-700 text-sm break-all">
                   <strong>Email:</strong><br />
-                  <Link to="mailto:kumarsunny9200@gmail.com">
-                    kumarsunny9200@gmail.com
+                  <Link to="mailto:Support@domain .com">
+                    Support@domain .com
                   </Link>
                 </p>
               </div>
@@ -75,7 +75,7 @@ export default function ContactUsPage() {
                 </div>
                 <p className="text-gray-700 text-sm">
                   <strong>Address:</strong><br />
-                  Delhi, India
+                   30n N Gould St, Sheridan, WY 82801, USA
                 </p>
               </div>
 
@@ -84,19 +84,16 @@ export default function ContactUsPage() {
             {/* 🔥 MAP DIV */}
             <div className="w-full h-[250px] md:h-[300px] rounded-xl overflow-hidden">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3503.255672588097!2d77.08272457528753!3d28.592105775686825!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d1bae6d0904b7%3A0x938fa4b31f997e05!2sAi.Risezonic!5e0!3m2!1sen!2sin!4v1774012786260!5m2!1sen!2sin"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2831.167773523052!2d-106.95752662393332!3d44.797769371070956!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5335fabc2a65517d%3A0x457b61d9bcc73fab!2sVivelune%2C%2030n%20N%20Gould%20St%2C%20Sheridan%2C%20WY%2082801%2C%20USA!5e0!3m2!1sen!2sin!4v1776160916592!5m2!1sen!2sin"
                 className="w-full h-full border-0"
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
               ></iframe>
+
+              
             </div>
 
           </div>
-
-
-          {/* Right Side - Form */}
-          {/* Right Side - Form */}
-{/* import BookingInfoPage from './BookingInfoPage'; */}
 
           <form className="bg-white p-6 rounded-2xl shadow-blue-300 hover:shadow-md space-y-4">
             <label>Name*</label>

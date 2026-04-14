@@ -31,11 +31,6 @@ export default function HomePage() {
   const handleSearch = async (e) => {
     e.preventDefault();
 
-    if (!departureDate) {
-      alert("Please select a date");
-      return;
-    }
-
     setLoading(true);
     setResults([]);
 
@@ -48,8 +43,6 @@ export default function HomePage() {
         tripType,
         activeTab,
       });
-
-      
     } catch (err) {
       console.error("Error:", err);
     } finally {
@@ -69,26 +62,22 @@ export default function HomePage() {
         <div className="absolute inset-0 bg-black/40"></div>
 
         <div className="relative z-10 flex items-center justify-center h-full text-white text-center px-4">
-          <div>
-            <h1 className="text-2xl md:text-4xl font-bold mb-2">
-              Find the best flights deals and explore the world
-            </h1>
-            {/* <p className="text-sm md:text-lg">
-              Find the best deals globally
-            </p> */}
-          </div>
+          <h1 className="text-2xl md:text-4xl font-bold">
+            Find the best flights deals and explore the world
+          </h1>
         </div>
       </div>
 
       <div className="max-w-7xl mx-auto px-4 md:-mt-20 relative z-20">
 
-        <div className="bg-white rounded-t-xl shadow-lg flex w-fit mx-auto overflow-hidden">
+        {/* Tabs */}
+        <div className="bg-white rounded-t-xl shadow-lg flex w-full md:w-fit mx-auto overflow-x-auto">
           <button
             onClick={() => {
               setActiveTab("flights");
               setResults([]);
             }}
-            className={`px-6 py-3 flex items-center gap-2 font-bold ${
+            className={`flex-1 md:flex-none px-6 py-3 flex items-center justify-center gap-2 font-bold ${
               activeTab === "flights"
                 ? "bg-blue-100 text-blue-600"
                 : "text-gray-500"
@@ -102,7 +91,7 @@ export default function HomePage() {
               setActiveTab("hotels");
               setResults([]);
             }}
-            className={`px-6 py-3 flex items-center gap-2 font-bold ${
+            className={`flex-1 md:flex-none px-6 py-3 flex items-center justify-center gap-2 font-bold ${
               activeTab === "hotels"
                 ? "bg-blue-100 text-blue-600"
                 : "text-gray-500"
@@ -112,12 +101,13 @@ export default function HomePage() {
           </button>
         </div>
 
-        <div className="bg-white rounded-xl shadow-2xl p-6">
+        {/* Form */}
+        <div className="bg-white rounded-xl shadow-2xl p-4 md:p-6">
           <form onSubmit={handleSearch}>
 
             {activeTab === "flights" ? (
               <>
-                <div className="flex gap-6 mb-4 text-sm font-semibold">
+                <div className="flex gap-4 mb-4 text-sm font-semibold flex-wrap">
                   <label className="flex items-center gap-2 cursor-pointer">
                     <input
                       type="radio"
@@ -139,32 +129,30 @@ export default function HomePage() {
 
                 <div className="grid grid-cols-1 md:grid-cols-12 gap-3">
 
-                  <div className="md:col-span-4 flex relative h-16">
+                  {/* FROM / TO */}
+                  <div className="md:col-span-4 flex relative h-14 md:h-16">
                     <input
                       value={from}
-                      onChange={(e) =>
-                        setFrom(e.target.value.toUpperCase())
-                      }
-                      className="w-1/2 border rounded-l-lg p-3 bg-gray-50 uppercase font-bold"
+                      onChange={(e) => setFrom(e.target.value.toUpperCase())}
+                      className="w-1/2 border rounded-l-lg p-2 md:p-3 bg-gray-50 uppercase font-bold text-sm"
                     />
 
                     <button
                       type="button"
                       onClick={handleSwap}
-                      className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 bg-white border rounded-full p-2 z-10"
+                      className="absolute z-10 left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 bg-white border rounded-full p-1.5 md:p-2 shadow"
                     >
                       <BsArrowLeftRight />
                     </button>
 
                     <input
                       value={to}
-                      onChange={(e) =>
-                        setTo(e.target.value.toUpperCase())
-                      }
-                      className="w-1/2 border rounded-r-lg p-3 bg-gray-50 uppercase font-bold"
+                      onChange={(e) => setTo(e.target.value.toUpperCase())}
+                      className="w-1/2 border rounded-r-lg p-2 md:p-3 bg-gray-50 uppercase font-bold text-sm"
                     />
                   </div>
 
+                  {/* Departure */}
                   <div className="md:col-span-2 border rounded-lg p-2 bg-gray-50">
                     <label className="text-[10px] text-gray-400 font-bold uppercase">
                       Departure
@@ -172,13 +160,12 @@ export default function HomePage() {
                     <input
                       type="date"
                       value={departureDate}
-                      onChange={(e) =>
-                        setDepartureDate(e.target.value)
-                      }
+                      onChange={(e) => setDepartureDate(e.target.value)}
                       className="w-full bg-transparent font-bold text-sm outline-none"
                     />
                   </div>
 
+                  {/* Return */}
                   <div
                     className={`md:col-span-2 border rounded-lg p-2 bg-gray-50 ${
                       tripType === "one" ? "opacity-30" : ""
@@ -191,13 +178,12 @@ export default function HomePage() {
                       type="date"
                       value={returnDate}
                       disabled={tripType === "one"}
-                      onChange={(e) =>
-                        setReturnDate(e.target.value)
-                      }
+                      onChange={(e) => setReturnDate(e.target.value)}
                       className="w-full bg-transparent font-bold text-sm outline-none"
                     />
                   </div>
 
+                  {/* Traveler */}
                   <div className="md:col-span-2">
                     <TravelerModal />
                   </div>
@@ -205,7 +191,7 @@ export default function HomePage() {
                   {/* Button */}
                   <button
                     type="submit"
-                    className="md:col-span-2 bg-blue-600 text-white font-bold rounded-lg hover:bg-blue-700 transition-all"
+                    className="md:col-span-2 w-full h-12 md:h-auto bg-blue-600 text-white font-bold rounded-lg hover:bg-blue-700 transition-all"
                   >
                     {loading ? "..." : "Search"}
                   </button>
@@ -215,9 +201,7 @@ export default function HomePage() {
               <div className="grid grid-cols-1 md:grid-cols-4 gap-3">
                 <input
                   value={from}
-                  onChange={(e) =>
-                    setFrom(e.target.value.toUpperCase())
-                  }
+                  onChange={(e) => setFrom(e.target.value.toUpperCase())}
                   className="border rounded-lg p-2 bg-gray-50"
                   placeholder="City Code"
                 />
@@ -225,24 +209,20 @@ export default function HomePage() {
                 <input
                   type="date"
                   value={departureDate}
-                  onChange={(e) =>
-                    setDepartureDate(e.target.value)
-                  }
+                  onChange={(e) => setDepartureDate(e.target.value)}
                   className="border rounded-lg p-2 bg-gray-50"
                 />
 
                 <input
                   type="date"
                   value={returnDate}
-                  onChange={(e) =>
-                    setReturnDate(e.target.value)
-                  }
+                  onChange={(e) => setReturnDate(e.target.value)}
                   className="border rounded-lg p-2 bg-gray-50"
                 />
 
                 <button
                   type="button"
-                  className="bg-blue-600 text-white font-bold rounded-lg"
+                  className="bg-blue-600 text-white font-bold rounded-lg h-12"
                 >
                   Search Hotels
                 </button>
@@ -258,11 +238,11 @@ export default function HomePage() {
               </div>
             )}
 
-            {!loading && results.length === 0 && (
+            {/* {!loading && results.length === 0 && (
               <p className="text-center text-gray-400">
                 No results found
               </p>
-            )}
+            )} */}
 
             {results.map((f, i) => (
               <div
@@ -284,7 +264,7 @@ export default function HomePage() {
                   </p>
 
                   <button
-                  type="button"
+                    type="button"
                     onClick={() =>
                       navigate("/flights-list", {
                         state: {
@@ -306,8 +286,8 @@ export default function HomePage() {
           </div>
         </div>
       </div>
-        
-      <WhyChooseUs/>  
+
+      <WhyChooseUs />
       <FeaturePage />
       <FlightDeals />
       <Testimonial />

@@ -42,10 +42,10 @@ export default function HotelPage() {
         <div className="relative z-10 flex items-center justify-center h-full text-center px-4">
           <div className="text-white">
             <h1 className="text-2xl md:text-4xl font-bold">
-              Book Hotels Easily
+              Book Affordable Hotels Online in the USA – Best Deals & Easy Reservations
             </h1>
             <p className="text-sm md:text-lg">
-              Find best hotel deals worldwide
+              Explore handpicked hotel deals tailored to your budget and travel needs.
             </p>
           </div>
         </div>
