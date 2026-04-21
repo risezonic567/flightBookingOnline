@@ -15,13 +15,15 @@ export default function HomePage() {
   const [activeTab, setActiveTab] = useState("flights");
   const navigate = useNavigate();
 
-  const [from, setFrom] = useState("DEL");
-  const [to, setTo] = useState("HYD");
+  const [from, setFrom] = useState("");
+  const [to, setTo] = useState("");
   const [departureDate, setDepartureDate] = useState("");
   const [returnDate, setReturnDate] = useState("");
 
   const [results, setResults] = useState([]);
   const [loading, setLoading] = useState(false);
+
+  const [flight, setFlight] = useState([])
 
   const handleSwap = () => {
     setFrom(to);
@@ -29,24 +31,21 @@ export default function HomePage() {
   };
 
   const handleSearch = async (e) => {
-    e.preventDefault();
-
-    setLoading(true);
-    setResults([]);
+    e.preventDefault()
 
     try {
-      console.log("Search Params:", {
-        from,
-        to,
-        departureDate,
-        returnDate,
-        tripType,
-        activeTab,
-      });
+      const res = await fetch("/flightData.json")
+      const data = await res.json();
+
+      const result = data.filter(
+        (f) =>
+          f.source.toLowerCase() === from.toLowerCase() &&
+          f.destination.toLowerCase() === to.toLowerCase()
+      );
+
+      setFlight(result)
     } catch (err) {
-      console.error("Error:", err);
-    } finally {
-      setLoading(false);
+      console.log(err);
     }
   };
 
@@ -77,11 +76,10 @@ export default function HomePage() {
               setActiveTab("flights");
               setResults([]);
             }}
-            className={`flex-1 md:flex-none px-6 py-3 flex items-center justify-center gap-2 font-bold ${
-              activeTab === "flights"
+            className={`flex-1 md:flex-none px-6 py-3 flex items-center justify-center gap-2 font-bold ${activeTab === "flights"
                 ? "bg-blue-100 text-blue-600"
                 : "text-gray-500"
-            }`}
+              }`}
           >
             <MdFlightTakeoff /> Flights
           </button>
@@ -91,11 +89,10 @@ export default function HomePage() {
               setActiveTab("hotels");
               setResults([]);
             }}
-            className={`flex-1 md:flex-none px-6 py-3 flex items-center justify-center gap-2 font-bold ${
-              activeTab === "hotels"
+            className={`flex-1 md:flex-none px-6 py-3 flex items-center justify-center gap-2 font-bold ${activeTab === "hotels"
                 ? "bg-blue-100 text-blue-600"
                 : "text-gray-500"
-            }`}
+              }`}
           >
             <BiHotel /> Hotels
           </button>
@@ -167,9 +164,8 @@ export default function HomePage() {
 
                   {/* Return */}
                   <div
-                    className={`md:col-span-2 border rounded-lg p-2 bg-gray-50 ${
-                      tripType === "one" ? "opacity-30" : ""
-                    }`}
+                    className={`md:col-span-2 border rounded-lg p-2 bg-gray-50 ${tripType === "one" ? "opacity-30" : ""
+                      }`}
                   >
                     <label className="text-[10px] text-gray-400 font-bold uppercase">
                       Return
@@ -244,45 +240,53 @@ export default function HomePage() {
               </p>
             )} */}
 
-            {results.map((f, i) => (
-              <div
-                key={i}
-                className="flex justify-between items-center border p-4 rounded-xl shadow-sm"
-              >
-                <div>
-                  <p className="text-blue-600 font-black">
-                    {f.validatingAirlineCodes?.[0]}
-                  </p>
-                  <p className="font-bold text-lg">
-                    {from} → {to}
-                  </p>
-                </div>
-
-                <div className="text-right">
-                  <p className="text-2xl font-black text-green-600">
-                    {f.price?.total} {f.price?.currency}
-                  </p>
-
-                  <button
-                    type="button"
-                    onClick={() =>
-                      navigate("/flights-list", {
-                        state: {
-                          from,
-                          to,
-                          departureDate,
-                          returnDate,
-                          results: f,
-                        },
-                      })
-                    }
-                    className="bg-blue-600 text-white text-xs px-4 py-1 rounded mt-2 uppercase font-bold"
+            <div className="mt-10 max-w-7xl mx-auto">
+              {flight.length === 0 ? (
+                ""
+              ) : (
+                flight.map((f) => (
+                  <div
+                    key={f.id}
+                    className="bg-white p-6 mb-4 rounded-xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow flex flex-col md:flex-row justify-between items-center"
                   >
-                    Book
-                  </button>
-                </div>
-              </div>
-            ))}
+                    {/* Left: Airline Info */}
+                    <div className="flex flex-col mb-4 md:mb-0">
+                      <span className="text-sm font-bold text-blue-600 uppercase tracking-wide">
+                        {f.airline}
+                      </span>
+                      <span className="text-xs text-gray-400 font-mono">{f.flight_no}</span>
+                    </div>
+
+                    {/* Center: Route Information */}
+                    <div className="flex items-center space-x-8">
+                      <div className="text-center">
+                        <p className="text-xl font-bold text-gray-800">{f.source}</p>
+                        <p className="text-xs text-gray-500 uppercase">Origin</p>
+                      </div>
+
+                      <div className="flex flex-col items-center">
+                        <div className="h-px w-16 bg-gray-300 relative">
+                          <div className="absolute -top-1 left-1/2 transform -translate-x-1/2 text-[10px]">✈</div>
+                        </div>
+                        <span className="text-[10px] text-gray-400 mt-1 uppercase">Non-stop</span>
+                      </div>
+
+                      <div className="text-center">
+                        <p className="text-xl font-bold text-gray-800">{f.destination}</p>
+                        <p className="text-xs text-gray-500 uppercase">Destination</p>
+                      </div>
+                    </div>
+
+                    <div className="text-right flex flex-col items-center md:items-end">
+                      <p className="text-2xl font-black text-gray-900">₹{f.price.toLocaleString('en-IN')}</p>
+                      <button className="mt-2 bg-blue-600 text-white px-6 py-2 rounded-lg font-medium hover:bg-blue-700 transition-colors text-sm">
+                        Book Now
+                      </button>
+                    </div>
+                  </div>
+                ))
+              )}
+            </div>
           </div>
         </div>
       </div>

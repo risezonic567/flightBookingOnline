@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { BiCalendar, BiMap } from "react-icons/bi";
 import HotelDeals from "../components/HotelDeals";
+import HotelFaq from "../components/HotelFaq";
 
 export default function HotelPage() {
   const [city, setCity] = useState("");
@@ -29,7 +30,6 @@ export default function HotelPage() {
 
   return (
     <>
-      {/* HERO SECTION */}
       <div className="relative w-full h-[250px] sm:h-[320px] md:h-[400px] lg:h-[450px] overflow-hidden">
         <img
           src="/Images/hotel Banner 1920x450.jpg.jpeg"
@@ -51,14 +51,12 @@ export default function HotelPage() {
         </div>
       </div>
 
-      {/* SEARCH BOX */}
       <form>
         <div className="max-w-7xl mx-auto px-4 -mt-24 md:-mt-32 relative z-20">
         <div className="bg-white rounded-xl shadow-2xl p-4 md:p-6">
 
           <div className="grid grid-cols-1 md:grid-cols-10 gap-3">
 
-            {/* CITY INPUT */}
             <div className="md:col-span-4 relative">
               <div className="flex items-center border rounded-lg p-3 bg-gray-100 h-14">
                 <BiMap className="text-blue-500 mr-2" size={20} />
@@ -117,8 +115,8 @@ export default function HotelPage() {
       </div>
       </form>
 
-      {/* HOTEL DEALS */}
       <HotelDeals />
+      <HotelFaq/>
     </>
   );
 }

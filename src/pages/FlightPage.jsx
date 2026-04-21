@@ -7,12 +7,13 @@ import { useNavigate } from "react-router-dom";
 export default function FlightPage() {
   const [activeTab, setActiveTab] = useState("flights");
   const [tripType, setTripType] = useState("round");
+  const [flight,setFlight]=useState([])
 
   const navigate = useNavigate()
 
 
-  const [from, setFrom] = useState("DEL");
-  const [to, setTo] = useState("HYD");
+  const [from, setFrom] = useState("");
+  const [to, setTo] = useState("");
 
   const [departureDate, setDepartureDate] = useState("");
   const [returnDate, setReturnDate] = useState("");
@@ -23,14 +24,100 @@ export default function FlightPage() {
   };
 
   const deals = [
-    { from: "DEL", to: "BOM", price: "₹4,500*", date: "15 May - 20 May" },
-    { from: "DEL", to: "BLR", price: "₹5,200*", date: "10 Jun - 15 Jun" },
-    { from: "HYD", to: "DXB", price: "₹18,900*", date: "22 May - 30 May" },
-    { from: "MAA", to: "SIN", price: "₹22,400*", date: "05 Jul - 12 Jul" },
-    { from: "HYD", to: "LON", price: "₹40,400*", date: "06 Jul - 52 Jul" },
-    { from: "BOM", to: "SIN", price: "₹22,400*", date: "05 Jul - 12 Jul" },
 
-  ];
+  {
+    id: 1,
+    from: "Boston",
+    to: "Washington DC",
+    airline: "Delta",
+    price: 140,
+    date: "June 02, 2026 - June 06, 2026"
+  },
+  {
+    id: 2,
+    from: "San Diego",
+    to: "San Jose",
+    airline: "Southwest",
+    price: 105,
+    date: "June 05, 2026 - June 09, 2026"
+  },
+  {
+    id: 3,
+    from: "Houston",
+    to: "New Orleans",
+    airline: "Spirit",
+    price: 90,
+    date: "June 08, 2026 - June 11, 2026"
+  },
+  {
+    id: 4,
+    from: "Las Vegas",
+    to: "San Francisco",
+    airline: "United",
+    price: 160,
+    date: "June 10, 2026 - June 14, 2026"
+  },
+  {
+    id: 5,
+    from: "Philadelphia",
+    to: "Chicago",
+    airline: "American Airlines",
+    price: 150,
+    date: "June 12, 2026 - June 16, 2026"
+  },
+  {
+    id: 6,
+    from: "Detroit",
+    to: "Atlanta",
+    airline: "Delta",
+    price: 135,
+    date: "June 15, 2026 - June 19, 2026"
+  },
+  {
+    id: 7,
+    from: "Minneapolis",
+    to: "Seattle",
+    airline: "Alaska Airlines",
+    price: 175,
+    date: "June 18, 2026 - June 22, 2026"
+  },
+  {
+    id: 8,
+    from: "San Antonio",
+    to: "Denver",
+    airline: "Frontier",
+    price: 120,
+    date: "June 20, 2026 - June 24, 2026"
+  },
+  {
+  id: 9,
+  from: "Los Angeles",
+  to: "Tokyo",
+  img: "/Images/tokyo.jpg",
+  airline: "Japan Airlines",
+  price: 720,
+  date: "July 05, 2026 - July 12, 2026"
+},
+];
+
+ const handleSearch = async (e) => {
+  e.preventDefault()
+
+  try {
+    const res = await fetch("/flightData.json")
+    const data = await res.json();
+
+    const result = data.filter(
+      (f) =>
+        f.source.toLowerCase() === from.toLowerCase() &&
+        f.destination.toLowerCase() === to.toLowerCase()
+    );
+
+    setFlight(result)
+  } catch (err) {
+    console.log(err);
+  }
+};
 
   return (
     <div className="w-full bg-[#f4f7f9] font-sans">
@@ -56,7 +143,7 @@ export default function FlightPage() {
         </div>
       </div>
 
-      <form action="">
+      <form onSubmit={handleSearch}>
         <div className="max-w-7xl mx-auto px-4  -mt-20 sm:-mt-24 md:-mt-45 relative z-20">
 
           <div className="bg-white rounded-xl shadow-2xl p-2 md:p-6">
@@ -157,6 +244,54 @@ export default function FlightPage() {
 
       </form>
 
+      <div className="mt-10 max-w-7xl mx-auto">
+  {flight.length === 0 ? (
+    ""
+  ) : (
+    flight.map((f) => (
+      <div 
+        key={f.id} 
+        className="bg-white p-6 mb-4 rounded-xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow flex flex-col md:flex-row justify-between items-center"
+      >
+        {/* Left: Airline Info */}
+        <div className="flex flex-col mb-4 md:mb-0">
+          <span className="text-sm font-bold text-blue-600 uppercase tracking-wide">
+            {f.airline}
+          </span>
+          <span className="text-xs text-gray-400 font-mono">{f.flight_no}</span>
+        </div>
+
+        {/* Center: Route Information */}
+        <div className="flex items-center space-x-8">
+          <div className="text-center">
+            <p className="text-xl font-bold text-gray-800">{f.source}</p>
+            <p className="text-xs text-gray-500 uppercase">Origin</p>
+          </div>
+
+          <div className="flex flex-col items-center">
+            <div className="h-px w-16 bg-gray-300 relative">
+              <div className="absolute -top-1 left-1/2 transform -translate-x-1/2 text-[10px]">✈</div>
+            </div>
+            <span className="text-[10px] text-gray-400 mt-1 uppercase">Non-stop</span>
+          </div>
+
+          <div className="text-center">
+            <p className="text-xl font-bold text-gray-800">{f.destination}</p>
+            <p className="text-xs text-gray-500 uppercase">Destination</p>
+          </div>
+        </div>
+
+        <div className="text-right flex flex-col items-center md:items-end">
+          <p className="text-2xl font-black text-gray-900">₹{f.price.toLocaleString('en-IN')}</p>
+          <button className="mt-2 bg-blue-600 text-white px-6 py-2 rounded-lg font-medium hover:bg-blue-700 transition-colors text-sm">
+            Book Now
+          </button>
+        </div>
+      </div>
+    ))
+  )}
+</div>
+
       <div className="max-w-7xl mx-auto px-4 py-12 md:py-20">
 
         <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-8 md:mb-10 gap-4">
@@ -232,7 +367,7 @@ export default function FlightPage() {
                 />
 
                 <button
-                  onClick={() => navigate("/checkout", { state: deal })}
+                  
                   className="w-full md:w-auto md:ml-auto bg-blue-600 text-white rounded-3xl px-4 py-2 cursor-pointer text-sm font-semibold"
                 >
                   Book Now

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { BrowserRouter, Link, Route, Routes } from 'react-router-dom'
 import Navbar from './components/Navbar'
 import HomePage from './pages/HomePage'
@@ -21,11 +21,26 @@ import FlightListPage from './pages/FlightListPage'
 import CheckoutPage from './pages/CheckoutPage'
 import HotelListPage from './pages/HotelListPage'
 import HotelBookCard from './pages/HotelBookCard'
+import Loader from './components/Loader'
 // import RefundPolicy from './pages/Policies/RefundPolicy'
 // import TermsCondition from './pages/Policies/TermCondition'
 // import PrivacyPolicy from './pages/Policies/PrivacyPolicy'
 
 export default function App() {
+  const [loader,setLoader]=useState(true)
+  useEffect(()=>{
+    const timer =setTimeout(()=>{
+      setLoader(false)
+    },2000)
+
+    return ()=>clearTimeout(timer)
+  },[])
+
+
+  if (loader) {
+    return <Loader />;
+  }
+
   return (
     <>
       <BrowserRouter>
@@ -40,8 +55,8 @@ export default function App() {
           <Route path="/sitemap" element={<Sitemap />} />
           <Route path="/hotels" element={<HotelPage />} />
           <Route path="/flights" element={<FlightPage />} />
-          <Route path="/flights-list" element={<FlightListPage />} />
-          <Route path="/hotels-list" element={<HotelListPage />} />
+          {/* <Route path="/flights-list" element={<FlightListPage />} /> */}
+          {/* <Route path="/hotels-list" element={<HotelListPage />} /> */}
           <Route path="/hotel-facility" element={<HotelBookCard />} />
           <Route path="/checkout" element={<CheckoutPage />} />
           <Route path="/faq" element={<FaqPage />} />
