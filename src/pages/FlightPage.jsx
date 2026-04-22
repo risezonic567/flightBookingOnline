@@ -253,7 +253,6 @@ export default function FlightPage() {
         key={f.id} 
         className="bg-white p-6 mb-4 rounded-xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow flex flex-col md:flex-row justify-between items-center"
       >
-        {/* Left: Airline Info */}
         <div className="flex flex-col mb-4 md:mb-0">
           <span className="text-sm font-bold text-blue-600 uppercase tracking-wide">
             {f.airline}
@@ -261,7 +260,6 @@ export default function FlightPage() {
           <span className="text-xs text-gray-400 font-mono">{f.flight_no}</span>
         </div>
 
-        {/* Center: Route Information */}
         <div className="flex items-center space-x-8">
           <div className="text-center">
             <p className="text-xl font-bold text-gray-800">{f.source}</p>
