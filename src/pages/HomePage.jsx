@@ -130,6 +130,7 @@ export default function HomePage() {
                   <div className="md:col-span-4 flex relative h-14 md:h-16">
                     <input
                       value={from}
+                      placeholder="From"
                       onChange={(e) => setFrom(e.target.value.toUpperCase())}
                       className="w-1/2 border rounded-l-lg p-2 md:p-3 bg-gray-50 uppercase font-bold text-sm"
                     />
@@ -144,6 +145,7 @@ export default function HomePage() {
 
                     <input
                       value={to}
+                      placeholder="To"
                       onChange={(e) => setTo(e.target.value.toUpperCase())}
                       className="w-1/2 border rounded-r-lg p-2 md:p-3 bg-gray-50 uppercase font-bold text-sm"
                     />
